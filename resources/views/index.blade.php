@@ -6,16 +6,15 @@
  * Time: 19:30
  */
 
-//$produits = App\Produit::all();
-
-
 ?>
 
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
 
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -107,6 +106,16 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-12">
+            <a href="panier" style="text-align: right;">
+                <h4 style="color:orangered !important;font-weight: bold;">Panier</h4>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
         <div class="col-md-4 panier">
             <h4>Tri</h4>
 
@@ -170,8 +179,19 @@
 
                 <p><?=  $produit->designation;?></p>
                 <p><?=  "Prix : ".$produit->prix;?>€</p>
-                <p><?=  "En stock : ".$produit->nb_disponible;?></p>
-                <!--<a href="#" id="addtocart">Ajouter au panier</a>-->
+                <!--<p><?=  "En stock : ".$produit->nb_disponible;?></p>-->
+
+                <?php if($produit->nb_disponible != 0){?>
+                <form action="" method="post">
+                    <input type="hidden" value="<?= $produit->id; ?>" name="id">
+                    <input type="hidden" value="<?= Session()->get('champ');?>" name="action" id="action">
+                    <input type="hidden" value="<?= Session()->get('tri');?>" name="tri" id="tri">
+                    <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                    <button type="submit"><i class="fa fa-shopping-basket" aria-hidden="true"></i></button>
+                </form>
+                <?php }else{ ?>
+                <i class="fa fa-truck" aria-hidden="true"></i>
+                <?php }?>
 
             </div>
                 <?php

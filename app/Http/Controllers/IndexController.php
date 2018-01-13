@@ -26,8 +26,9 @@ class IndexController extends Controller
             ->select('*')
             ->orderBy($champ,$tri)
             ->paginate(6);
+
         return view('index')->With("produits",$produits);
-        //return view('index');
+
     }
     public function Index2(Request $request){
         $champ = $request->input('action');
@@ -35,11 +36,18 @@ class IndexController extends Controller
         $tri = $request->input('tri');
         Session::put('tri',$tri);
 
+        $id = $request->input('id');
+        $panier = DB::table('produits')
+            ->where('id',$id)
+            ->get();
+
+        Session::push('panier',$panier);
+
         $produits = DB::table('produits')
             ->select('*')
             ->orderBy($champ,$tri)
             ->paginate(6);
         return view('index')->With("produits",$produits);
-        //return view('index');
+
     }
 }

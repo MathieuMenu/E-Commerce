@@ -15,4 +15,4 @@ Route::get('/', 'IndexController@index')->name('home');
 
 Route::post('/', 'IndexController@index2')->name('home2');
 
-
+Route::get('/panier', 'PanierController@panier')->name('home4');
