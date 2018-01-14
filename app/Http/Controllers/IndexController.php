@@ -41,7 +41,27 @@ class IndexController extends Controller
             ->where('id',$id)
             ->get();
 
-        Session::push('panier',$panier);
+        $ok=1;
+        $verif = Session::get('panier');
+        if($verif != null) {
+            foreach ($verif as $P) {
+                foreach ($P as $produit) {
+                    if ($produit->id == $id) {
+                        $ok=0;
+                    }else{
+                        $ok=1;
+                    }
+                }
+            }
+        }else{
+            Session::push('panier',$panier);
+        }
+
+        if($verif != null) {
+            if ($ok != 0) {
+                Session::push('panier', $panier);
+            }
+        }
 
         $produits = DB::table('produits')
             ->select('*')

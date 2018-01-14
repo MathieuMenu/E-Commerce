@@ -104,11 +104,11 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container" style="padding-bottom: 50px;">
     <div class="row">
         <div class="col-md-12">
             <a href="panier" style="text-align: right;">
-                <h4 style="color:orangered !important;font-weight: bold;">Panier</h4>
+                <h4 style="color:orangered !important;font-weight: bold;">Mon Panier</h4>
             </a>
         </div>
     </div>

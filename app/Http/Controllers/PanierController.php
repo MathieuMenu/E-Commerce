@@ -11,8 +11,9 @@ use Session;
 class PanierController extends Controller
 {
     public function panier(){
-        $panier = Session::all();
 
-        return view('panier',$panier);
+        $panier = Session::get('panier');
+
+        return view('panier')->WIth('panier',$panier);
     }
 }
