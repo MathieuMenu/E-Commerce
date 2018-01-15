@@ -111,9 +111,14 @@
     <div class="row">
         <div class="col-md-4">
             <h4>Panier</h4>
+            <a href="./">Index</a>
         </div>
         <div class="col-md-8">
-
+            <?php if($message != null){
+                echo '<p>'.$message.'</p>';
+            }
+            ?>
+            <form action="" method="post">
             <div id="main">
                 <div id="facture">
                     <p class="entete">
@@ -122,6 +127,7 @@
                         <span class="col_3">Quantité</span>
                         <span class="col_4">Prix total</span>
                     </p>
+
                     <?php
                     if($panier != null){
                         foreach($panier as $P){
@@ -136,9 +142,9 @@
                     </span>
                         <span class="col_2 info-prix"></span>
                         <span class="col_3">
-                      <button class="btn_moins">-</button>
+                      {{--<button class="btn_moins">-</button>--}}
                       <input  name="quantite[]">
-                      <button class="btn_plus">+</button>
+                      {{--<button class="btn_plus">+</button>--}}
                     </span>
                         <span class="col_4 total-ligne text-right"></span>
                     </p>
@@ -153,12 +159,42 @@
                         <span></span>
                         <span></span>
                         <span>Total :</span>
-                        <span id="total" class="text-right"></span>
+                        <span id="total" name="total" class="text-right">€</span>
+
 
                     </p>
                 </div>
             </div>
+            <div class="col-md-12" style="padding-top: 50px;">
+
+                    <p>Veuillez remplir le formulaire suivant pour valider votre panier</p>
+                    <p>Nom : <input type="text" id="nom" name="nom"  /></p>
+                    <p>Prenom : <input type="text" id="prenom" name="prenom"  /></p>
+                    <p>Email : <input type="email" id="email" name="email"  /></p>
+                    <p>Montant : <input type="number" id="total2" name="total" readonly="true" /></p>
+                    <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                    <?php
+                    $i=0;
+                    if($panier != null){
+                    foreach($panier as $P){
+                    foreach($P as $Produit){
+                    $i=$i+1;
+                    ?>
+                    <input type="hidden" value="<?= $Produit->designation; ?>" name="nomproduits<?= $i ?>">
+                    <input type="hidden" value="<?= $Produit->prix; ?>" name="prixproduits<?= $i ?>">
+                    <?php
+                    }
+                    }
+                    }
+                    ?>
+                    <input type="hidden" value="<?= $i ?>" name="nbiteration">
+
+
+                    <p style="padding-top: 20px;"><input type="submit" /></p>
+                </form>
+            </div>
         </div>
+
     </div>
 </div>
 
@@ -169,6 +205,7 @@
         // récup. des champs de contrôle
         var oParent = document.getElementById('facture');
         var oTotaux = oParent.querySelectorAll('.total-ligne');
+
         var i, nb = oTotaux.length;
         // calcul super total
         for( i = 0 ; i < nb; i += 1){
@@ -176,6 +213,15 @@
         }
         // affectation de la valeur
         document.getElementById('total').textContent = total.toFixed(2);
+        document.getElementById('total2').setAttribute("value", total);
+    }
+    function recupqt(quantite){
+        $.ajax({
+            url : 'mail.blade.php',
+            type : 'POST', // Le type de la requête HTTP, ici devenu POST
+            data : 'quantite=' + quantite, // On fait passer nos variables, exactement comme en GET, au script more_com.php
+            dataType : 'html'
+        });
     }
     /**
      * Calcul suivant les éléments de la ligne et met à jour les champs d'affichage
@@ -190,6 +236,7 @@
         // récup. et calcul des valeurs
         var prixUnitaire = parseFloat( oPrix.value) || 0;
         var quantite     = parseFloat( oQuantite.value) || 0;
+
         var total        = prixUnitaire * quantite;
         // affectation des valeurs
         oTxtPrix.textContent  = prixUnitaire.toFixed(2);
@@ -228,14 +275,14 @@
             calculLigne( parent);
         };
         // récup. des <button>
-        oElem = parent.querySelector('.btn_plus');
-        oElem.onclick = function(){
-            majQuantite( parent, 1);
-        };
-        oElem = parent.querySelector('.btn_moins');
-        oElem.onclick = function(){
-            majQuantite( parent, -1);
-        };
+//        oElem = parent.querySelector('.btn_plus');
+//        oElem.onclick = function(){
+//            majQuantite( parent, 1);
+//        };
+//        oElem = parent.querySelector('.btn_moins');
+//        oElem.onclick = function(){
+//            majQuantite( parent, -1);
+//        };
         // récup. <input> quantité
         oElem = parent.querySelector('[name ^=quant]');
         oElem.onkeyup = function(){
