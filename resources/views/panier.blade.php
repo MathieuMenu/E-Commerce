@@ -168,9 +168,9 @@
             <div class="col-md-12" style="padding-top: 50px;">
 
                     <p>Veuillez remplir le formulaire suivant pour valider votre panier</p>
-                    <p>Nom : <input type="text" id="nom" name="nom"  /></p>
-                    <p>Prenom : <input type="text" id="prenom" name="prenom"  /></p>
-                    <p>Email : <input type="email" id="email" name="email"  /></p>
+                    <p>Nom : <input type="text" id="nom" name="nom" required="required" /></p>
+                    <p>Prenom : <input type="text" id="prenom" name="prenom" required="required" /></p>
+                    <p>Email : <input type="email" id="email" name="email" required="required" /></p>
                     <p>Montant : <input type="number" id="total2" name="total" readonly="true" /></p>
                     <input type="hidden" value="{{ csrf_token() }}" name="_token">
                     <?php
@@ -191,8 +191,9 @@
 
 
                     <p style="padding-top: 20px;"><input type="submit" /></p>
+                </div>
                 </form>
-            </div>
+
         </div>
 
     </div>

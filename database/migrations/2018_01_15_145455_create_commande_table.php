@@ -20,6 +20,7 @@ class CreateCommandeTable extends Migration
             $table->double('montant');
             $table->string('email');
             $table->dateTime('datecommande');
+            $table->integer('livrer');
             $table->timestamps();
         });
     }

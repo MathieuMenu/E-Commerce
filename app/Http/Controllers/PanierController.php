@@ -27,7 +27,7 @@ class PanierController extends Controller
         $montant = $request->input('total');
 
         DB::table('commandes')->insert(
-            ['nom' => $nom , 'prenom' => $prenom, 'email' => $email , 'montant' => $montant ,'datecommande' => NOW()]
+            ['nom' => $nom , 'prenom' => $prenom, 'email' => $email , 'montant' => $montant ,'datecommande' => NOW(),'livrer'=> 0]
         );
 
         $panier = Session::get('panier');

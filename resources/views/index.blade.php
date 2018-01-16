@@ -89,10 +89,29 @@
             padding:3px 6px;
             text-decoration:none;
         }
-
+        .droite
+        {
+            text-align: right !important;
+        }
+        a, a:visited /* Lien et lien visité */
+        {
+            color: orangered;
+            text-decoration:none;
+        }
+        a:hover /* On pointe le lien */
+        {
+            color: orangered;
+            text-decoration:none;
+        }
+        a:active, a:focus /* Lors de l'activation et de l'attente sur un lien */
+        {
+            color: orangered;
+            text-decoration:none;
+        }
         form{
             padding-top:10px;
         }
+
     </style>
 
 </head>
@@ -102,6 +121,7 @@
     <div style="color:white;text-align: left;font-size:25px;font-weight: bold;">
         <p>E-commerce</p>
     </div>
+
 </div>
 
 <div class="container" style="padding-bottom: 50px;">
@@ -205,7 +225,9 @@
     </div>
 </div>
 
-
+<div style="font-size:25px;font-weight: bold;">
+    <p><a href="{{route('login')}}">Administration</a></p>
+</div>
 
 </body>
 </html>
