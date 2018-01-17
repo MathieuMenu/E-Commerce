@@ -17,7 +17,9 @@ class CreateProduitTable extends Migration
             $table->increments('id');
             $table->double('prix');
             $table->string('designation',100);
+            $table->string('description',100);
             $table->integer('nb_disponible');
+            $table->integer('affichage');
             $table->timestamps();
         });
     }

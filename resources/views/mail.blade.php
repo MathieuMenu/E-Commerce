@@ -17,7 +17,7 @@ foreach($_POST['quantite'] as $q){
         <?php for($i=1;$i<=$_POST['nbiteration'];$i++)
         {
             $sum=$_POST['prixproduits'.$i]*$T[$v];
-            echo "Article ".$i." : ".$_POST['nomproduits'.$i]. " / Prix unitaire : ".$_POST['prixproduits'.$i]."/u / Quantité : ".$T[$v]." Montant pour les articles : ".$sum."€";
+            echo "Article ".$i." : ".$_POST['nomproduits'.$i]. " / Prix unitaire : ".$_POST['prixproduits'.$i]."€/u / Quantité : ".$T[$v]." Montant pour les articles : ".$sum."€";
             echo '<p></p>';
             $v=$v+1;
         }

@@ -24,6 +24,7 @@ class IndexController extends Controller
 
         $produits = DB::table('produits')
             ->select('*')
+            ->where('affichage',1)
             ->orderBy($champ,$tri)
             ->paginate(6);
 
@@ -65,6 +66,7 @@ class IndexController extends Controller
 
         $produits = DB::table('produits')
             ->select('*')
+            ->where('affichage',1)
             ->orderBy($champ,$tri)
             ->paginate(6);
         return view('index')->With("produits",$produits);

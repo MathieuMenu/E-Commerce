@@ -5,7 +5,7 @@
 <div class="container" style="padding-bottom: 50px;">
     <div class="row">
         <div class="col-md-2">
-            <a href="" style="text-align: left;">
+            <a href="produit" style="text-align: left;">
                 <h4 style="color:orangered !important;font-weight: bold;">Produits</h4>
             </a>
             <a href="" style="text-align: left;">

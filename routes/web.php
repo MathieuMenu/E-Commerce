@@ -21,5 +21,12 @@ Route::post('/panier', 'PanierController@valider')->name('home4');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home5');
+
+Route::get('/produit', 'ProduitController@index')->name('home6');
+
+Route::get('/produit/add', 'ProduitaddController@index')->name('home7');
+
+Route::post('/produit/add', 'ProduitaddController@post')->name('home8');
+
 
