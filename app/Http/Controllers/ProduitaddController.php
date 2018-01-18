@@ -24,6 +24,6 @@ class ProduitaddController extends Controller
             ['designation' => $designation , 'description' => $description, 'prix' => $prix , 'nb_disponible' => $quantite ,'affichage'=> 1]
         );
 
-        return view('produit');
+        return Redirect("produit");
     }
 }

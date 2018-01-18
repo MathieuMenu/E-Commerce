@@ -29,4 +29,10 @@ Route::get('/produit/add', 'ProduitaddController@index')->name('home7');
 
 Route::post('/produit/add', 'ProduitaddController@post')->name('home8');
 
+Route::post('/produit/modif', 'ProduitmodifController@index2')->name('home9');
+
+Route::get('/produit/modif', 'ProduitmodifController@index')->name('home10');
+
+Route::post('/produit/modif/execute', 'ProduitmodifController@index3')->name('home11');
+
 

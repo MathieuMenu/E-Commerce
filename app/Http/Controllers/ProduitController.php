@@ -11,6 +11,12 @@ use Session;
 class ProduitController extends Controller
 {
     public function index(){
-        return view('produit');
+
+        $produits = DB::table('produits')
+            ->select('*')
+            ->where('affichage',1)
+            ->paginate(6);
+
+        return view('produit')->With('produits',$produits);
     }
 }

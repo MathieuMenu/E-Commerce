@@ -29,9 +29,25 @@
                             </form>
 
                         <p></p>
-                        {{--Liste des produits :--}}
+                        Liste des produits :
                         <p></p>
 
+                        <div class="col-md-12">
+                            <?php foreach($produits as $produit){
+                            ?>
+                            <?= "Id : ".$produit->id; ?><br>
+                            <?= "Prix : ".$produit->prix; ?><?= "€ / "?><?= "Designation : ".$produit->designation; ?><?= " / "?><?= "Description : ".$produit->description; ?><?= " / "?><?= "Nb_dispo : ".$produit->nb_disponible; ?><br>
+                            <form action="{{route('home9')}}" method="post">
+                                <input type="hidden" value="<?= $produit->id; ?>" id="id" name="id">
+                                <button type="submit">Modifier ce produit</button>
+                                <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                            </form>
+                            <p></p>
+                            <?php } ?>
+                        </div>
+                        <div class="text-center col-sm-10">
+                            <?= $produits->links(); ?>
+                        </div>
 
                     </div>
                 </div>
