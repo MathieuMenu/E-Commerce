@@ -39,7 +39,12 @@
                             <?= "Prix : ".$produit->prix; ?><?= "€ / "?><?= "Designation : ".$produit->designation; ?><?= " / "?><?= "Description : ".$produit->description; ?><?= " / "?><?= "Nb_dispo : ".$produit->nb_disponible; ?><br>
                             <form action="{{route('home9')}}" method="post">
                                 <input type="hidden" value="<?= $produit->id; ?>" id="id" name="id">
-                                <button type="submit">Modifier ce produit</button>
+                                <button type="submit" style="float: left;">Modifier ce produit</button>
+                                <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                            </form>
+                            <form action="{{route('home12')}}" method="post">
+                                <input type="hidden" value="<?= $produit->id; ?>" id="id" name="id">
+                                <button type="submit">Supprimer ce produit</button>
                                 <input type="hidden" value="{{ csrf_token() }}" name="_token">
                             </form>
                             <p></p>

@@ -35,4 +35,6 @@ Route::get('/produit/modif', 'ProduitmodifController@index')->name('home10');
 
 Route::post('/produit/modif/execute', 'ProduitmodifController@index3')->name('home11');
 
+Route::post('/produit/supp', 'ProduitsuppController@index')->name('home12');
+
 
