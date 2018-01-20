@@ -8,12 +8,6 @@
                 <a href="{{route('home6')}}" style="text-align: left;">
                     <h4 style="color:orangered !important;font-weight: bold;">Produits</h4>
                 </a>
-                <a href="" style="text-align: left;">
-                    <h4 style="color:orangered !important;font-weight: bold;">Clients</h4>
-                </a>
-                <a href="" style="text-align: left;">
-                    <h4 style="color:orangered !important;font-weight: bold;">Commandes</h4>
-                </a>
             </div>
             <div class="col-md-10">
                 <div class="panel panel-default">

@@ -8,7 +8,7 @@
             <a href="produit" style="text-align: left;">
                 <h4 style="color:orangered !important;font-weight: bold;">Produits</h4>
             </a>
-            <a href="" style="text-align: left;">
+            <a href="client" style="text-align: left;">
                 <h4 style="color:orangered !important;font-weight: bold;">Clients</h4>
             </a>
             <a href="" style="text-align: left;">
