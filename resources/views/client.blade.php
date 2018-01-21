@@ -11,7 +11,7 @@
                 <a href="{{route('home6')}}" style="text-align: left;">
                     <h4 style="color:orangered !important;font-weight: bold;">Produits</h4>
                 </a>
-                <a href="" style="text-align: left;">
+                <a href="{{route('home14')}}" style="text-align: left;">
                     <h4 style="color:orangered !important;font-weight: bold;">Commandes</h4>
                 </a>
             </div>

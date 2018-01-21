@@ -39,4 +39,7 @@ Route::post('/produit/supp', 'ProduitsuppController@index')->name('home12');
 
 Route::get('/client', 'ClientController@index')->name('home13');
 
+Route::get('/commandes', 'CommandesController@index')->name('home14');
+
+Route::post('/commandes', 'CommandesController@index2')->name('home15');
 
