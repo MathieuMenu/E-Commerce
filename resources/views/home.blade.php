@@ -34,6 +34,12 @@
                         <?= "Id : ".$commande->id; ?><br>
                         <?= "Nom : ".$commande->nom; ?><?= " / "?><?= "Prenom : ".$commande->prenom; ?><?= " / "?><?= "Montant : ".$commande->montant."€"; ?><br>
                         <?= "Email : ".$commande->email; ?><?= " / "?><?= "Date commande : ".$commande->datecommande; ?>
+                        <form action="envoi" method="post">
+                                <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                                <input type="hidden" value="<?= $commande->id; ?>" name="id">
+                                <input type="hidden" value="<?= $commande->email; ?>" name="email">
+                                <button type="submit">Envoyer la commande</button>
+                            </form>
                         <p></p>
                         <?php } ?>
                     </div>

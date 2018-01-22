@@ -74,7 +74,20 @@
                             <?php foreach($commandes as $commande){
                             ?>
                             <?= "Client = Nom : ".$commande->nom; ?><?= " / "?><?= "Prenom : ".$commande->prenom; ?><?= " / "?><?= "Email : ".$commande->email; ?><br>
-                            <?= "DateCommande : ".$commande->datecommande; ?><?= " / "?><?= "Montant : ".$commande->montant; ?><?= "€ / "?><?php if($commande->livrer == 0){ echo 'Livré : Non'; }else{ echo "Livré : Oui";} ?>
+                            <?= "DateCommande : ".$commande->datecommande; ?><?= " / "?><?= "Montant : ".$commande->montant; ?><?= "€ / "?>
+                            <?php if($commande->livrer == 0){
+                                echo 'Livré : Non';
+                                ?>
+                                <form action="envoi" method="post">
+                                    <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                                    <input type="hidden" value="<?= $commande->id; ?>" name="id">
+                                    <input type="hidden" value="<?= $commande->email; ?>" name="email">
+                                    <button type="submit">Envoyer la commande</button>
+                                </form>
+                            <?php
+                            }else{
+                                echo "Livré : Oui";
+                            } ?>
                             <p>&nbsp;</p>
                             <p></p>
                             <?php } ?>

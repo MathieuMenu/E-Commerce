@@ -43,3 +43,5 @@ Route::get('/commandes', 'CommandesController@index')->name('home14');
 
 Route::post('/commandes', 'CommandesController@index2')->name('home15');
 
+Route::post('/envoi', 'EnvoiController@index')->name('home16');
+
